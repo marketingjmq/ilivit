@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Guía de uso de ILÍVIT: preparación, tiempos de reposo, beneficios, ingredientes y precauciones.">
+<meta property="og:title" content="Guía ILÍVIT">
+<meta property="og:image" content="caja.webp">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Guía ILÍVIT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: noche de hojas — una columna móvil, bandas a todo lo ancho; verde bosque profundo con brillo lima como la caja ILÍVIT */
+:root{
+  --night:#08170f;      /* fondo */
+  --leaf:#0f2719;       /* superficie */
+  --moss:#173b26;       /* superficie elevada / bordes */
+  --vein:#2a5a3c;       /* líneas */
+  --lime:#a6e83a;       /* acento marca (brillo de la caja) */
+  --lime-ink:#0b1d05;   /* texto sobre lima */
+  --fg:#eef6ea;         /* texto */
+  --muted:#a9c2ad;      /* texto secundario */
+  --alert:#ff6a55;      /* "hirviendo" / precaución */
+  --alert-bg:#2b1410;
+  --display:"Archivo","Arial Black",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--night);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,6vw,44px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+h3{font-size:19px;font-weight:800}
+p{margin:0}
+a{color:var(--lime)}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:6px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+.lede{color:var(--muted);max-width:62ch}
+.tag{display:inline-block;background:var(--lime);color:var(--lime-ink);padding:.02em .28em;border-radius:4px}
+.tag.hot{background:var(--alert);color:#fff}
+
+/* barra superior */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--night) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--moss)}
+.top .wrap{display:flex;align-items:center;gap:14px;padding-block:10px}
+.brand{font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:.04em;color:var(--fg);text-decoration:none;flex:none}
+.brand b{color:var(--lime)}
+.nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 12px;border:1px solid var(--moss);border-radius:999px}
+.nav a:hover{color:var(--fg);border-color:var(--vein)}
+
+section{padding-block:56px}
+.band{background:var(--leaf);border-block:1px solid var(--moss)}
+.head{display:grid;gap:10px;margin-bottom:28px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-block:36px 48px;background:radial-gradient(120% 80% at 80% 30%,#1c4a2c 0%,transparent 60%),var(--night)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+.hero h1{font-size:clamp(46px,11vw,96px);font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
+.hero h1 span{display:block;color:var(--lime);text-shadow:0 0 28px rgba(166,232,58,.35)}
+.hero .lede{margin-top:16px;font-size:18px}
+.hero-img{justify-self:center;width:100%;max-width:300px;aspect-ratio:1/1;height:auto;object-fit:cover;object-position:50% 55%;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px var(--moss)}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.fact{border:1px solid var(--vein);border-radius:12px;padding:10px 14px;min-width:0}
+.fact strong{display:block;font-family:var(--display);font-weight:900;font-size:24px;color:var(--lime);font-variant-numeric:tabular-nums;line-height:1.1}
+.fact small{color:var(--muted);font-size:13px}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.04em;padding:12px 18px;border-radius:10px;border:2px solid var(--lime);color:var(--lime);background:transparent;text-decoration:none;cursor:pointer}
+.btn.solid{background:var(--lime);color:var(--lime-ink)}
+.btn:hover{filter:brightness(1.08)}
+
+/* pasos */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:16px;border:1px solid var(--moss);border-radius:14px;background:var(--leaf)}
+.steps li::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--lime);color:var(--lime-ink);font-family:var(--display);font-weight:900;font-size:20px}
+.steps p{color:var(--muted);margin-top:4px}
+.prep{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.note{margin-top:16px;padding:14px 16px;border-left:3px solid var(--lime);background:var(--moss);border-radius:0 10px 10px 0;font-size:15.5px}
+.note.warn{border-color:var(--alert);background:var(--alert-bg)}
+
+/* videos */
+.videos.solo{max-width:340px;justify-self:center;width:100%}
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:8px}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+video{width:100%;max-width:100%;border-radius:14px;background:#000;border:1px solid var(--moss);display:block}
+figcaption{font-size:14px;color:var(--muted)}
+figcaption b{color:var(--fg)}
+
+/* potencia + temporizador */
+.power{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.scale{border:1px solid var(--moss);border-radius:16px;padding:20px;background:var(--night)}
+.bar{height:14px;border-radius:999px;background:linear-gradient(90deg,#4f7d3a,var(--lime) 60%,#e6ff7a);margin:16px 0 8px;position:relative}
+.ticks{display:grid;grid-template-columns:repeat(4,1fr);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.ticks span:last-child{text-align:right}
+.ticks span:nth-child(2){text-align:left}
+.levels{display:grid;gap:8px;margin-top:16px;font-size:15px}
+.levels div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--moss);padding-bottom:6px}
+.levels b{font-variant-numeric:tabular-nums;color:var(--lime);flex:none}
+.timer{border:1px solid var(--vein);border-radius:16px;padding:20px;background:var(--night);display:grid;gap:14px;justify-items:center;text-align:center}
+.ring{position:relative;width:190px;height:190px;max-width:100%}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .read{position:absolute;inset:0;display:grid;place-content:center}
+.ring .t{font-family:var(--display);font-weight:900;font-size:44px;font-variant-numeric:tabular-nums;line-height:1}
+.ring .s{font-size:13px;color:var(--muted);margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.chip{font:600 14px var(--body);color:var(--fg);background:transparent;border:1px solid var(--vein);border-radius:999px;padding:6px 12px;cursor:pointer;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--lime);border-color:var(--lime);color:var(--lime-ink)}
+.ctrl{display:flex;gap:8px}
+
+/* listas */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.checks li::before{content:"";width:18px;height:18px;margin-top:4px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(166,232,58,.15);-webkit-mask:none}
+.checks.q li::before{background:transparent;border:2px solid var(--lime);box-shadow:none}
+.checks.x li::before{background:var(--alert);box-shadow:0 0 0 4px rgba(255,106,85,.15)}
+
+/* ingredientes */
+.ings{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.ing{padding:16px;border:1px solid var(--moss);border-radius:14px;background:var(--leaf);display:grid;gap:4px;align-content:start}
+.ing em{font-size:13px;color:var(--lime);font-style:italic}
+.ing p{font-size:15px;color:var(--muted)}
+
+/* precauciones */
+.cautions{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.caution{padding:18px;border-radius:14px;border:1px solid #5a2a22;background:var(--alert-bg);display:grid;gap:8px;align-content:start}
+.caution h3{color:#ffd2c9}
+.caution p,.caution li{font-size:15.5px;color:#f1d9d3}
+.caution ul{margin:0;padding-left:18px;display:grid;gap:2px}
+.caution.soft{border-color:var(--moss);background:var(--leaf)}
+.caution.soft h3{color:var(--fg)}
+.caution.soft p{color:var(--muted)}
+
+/* faq */
+.faq{display:grid;gap:10px}
+details{border:1px solid var(--moss);border-radius:12px;background:var(--leaf)}
+summary{cursor:pointer;list-style:none;padding:16px 48px 16px 18px;font-weight:700;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font:900 24px var(--display);color:var(--lime)}
+details[open] summary::after{content:"–"}
+details>div{padding:0 18px 18px;color:var(--muted);display:grid;gap:10px;max-width:70ch}
+
+/* compartir */
+.share{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+.qr{background:#fff;padding:14px;border-radius:16px;width:240px;max-width:100%;box-shadow:0 0 0 6px var(--lime),0 20px 60px rgba(0,0,0,.5)}
+.qr img,.qr svg{display:block;width:100%;height:auto}
+.linkbox{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.linkbox input{flex:1 1 240px;min-width:0;font:500 14px var(--body);color:var(--fg);background:var(--night);border:1px solid var(--vein);border-radius:10px;padding:11px 12px}
+
+/* contacto */
+.contact{display:grid;grid-template-columns:minmax(0,340px);gap:12px}
+.c{padding:18px;border:1px solid var(--moss);border-radius:14px;display:grid;gap:6px;align-content:start}
+.c .eyebrow{font-size:12px}
+.c .num{font-family:var(--display);font-weight:800;font-size:20px;font-variant-numeric:tabular-nums;user-select:all}
+.c a{font-weight:600}
+footer{padding-block:32px 48px;border-top:1px solid var(--moss);color:var(--muted);font-size:13.5px}
+footer .wrap{display:grid;gap:10px}
+
+@media (max-width:760px){
+  section{padding-block:44px}
+  .hero .wrap,.prep,.power,.grid2,.share{grid-template-columns:1fr}
+  .hero-img{max-width:260px;aspect-ratio:4/3;order:-1}
+  .share{justify-items:center;text-align:center}
+  .share .linkbox{justify-content:center}
+  .qr{width:220px}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">IL<b>Í</b>VIT</a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#preparacion">Preparación</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#ingredientes">Ingredientes</a>
+      <a href="#precauciones">Precauciones</a>
+      <a href="#recomendaciones">Recomendaciones</a>
+      <a href="#preguntas">Preguntas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Guía de uso · Depurador natural</p>
+      <h1>Tu guía <span>ILÍVIT</span></h1>
+      <p class="lede">Todo lo que necesitas para tomar tu tisana ILÍVIT: cómo prepararla, cuánto dejarla reposar, qué beneficios aporta, sus ingredientes y las precauciones antes de empezar.</p>
+      <div class="facts">
+        <div class="fact"><strong>30</strong><small>sachets por caja</small></div>
+        <div class="fact"><strong>5–30 min</strong><small>de reposo según potencia</small></div>
+        <div class="fact"><strong>Noche</strong><small>momento de tomarlo</small></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn solid" href="#preparacion">Cómo se prepara</a>
+        <a class="btn" href="#precauciones">Antes de empezar</a>
+      </div>
+    </div>
+    <img class="hero-img" src="caja.webp" alt="Caja de ILÍVIT depurador natural de 30 sachets entre hojas de menta" width="501" height="587">
+  </div>
+</section>
+
+<!-- PREPARACIÓN -->
+<section id="preparacion">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Paso a paso</p>
+      <h2>¿Cómo se prepara? <span class="tag">Es muy fácil</span></h2>
+    </div>
+    <div class="prep">
+      <div>
+        <ol class="steps">
+          <li><div><h3>Calienta el agua hasta que esté <span class="tag hot">hirviendo</span></h3><p>Usa una olla o tetera. El agua debe llegar a su punto de ebullición.</p></div></li>
+          <li><div><h3>Abre el sobre de ILÍVIT</h3><p>Rasga el sobre verde y saca la bolsita blanca (la tisana). El sobre no va al agua.</p></div></li>
+          <li><div><h3>Pon la tisana en una taza y echa el agua hirviendo</h3><p>Coloca la bolsita en la taza vacía y vierte el agua recién hervida encima.</p></div></li>
+          <li><div><h3>Mueve la tisana</h3><p>Haz movimientos suaves tomándola del hilo para que suelte todas sus propiedades.</p></div></li>
+          <li><div><h3>Déjala reposar</h3><p>Entre más tiempo de infusión, mayor será el efecto. Si es tu primera vez, empieza con 5 o 10 minutos.</p></div></li>
+        </ol>
+        <p class="note"><b>Método olla:</b> también puedes poner la tisana directamente en la olla cuando el agua esté hirviendo y moverla al final para que suelte todo.</p>
+      </div>
+      <div class="videos solo" style="margin-top:0">
+        <figure>
+          <video controls playsinline preload="none" poster="preparacion-noche.jpg"><source src="preparacion-noche.mp4" type="video/mp4"></video>
+          <figcaption><b>Tu ritual de la noche</b> · 30 s</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POTENCIA -->
+<section class="band" id="potencia">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Tiempo de infusión</p>
+      <h2>El reposo define la <span class="tag">potencia</span></h2>
+      <p class="lede">El tiempo que dejas la tisana en el agua determina la concentración de la bebida: entre más tiempo, mayor dosis y potencia. Ajusta según cómo reacciona tu cuerpo.</p>
+    </div>
+    <div class="power">
+      <div class="scale">
+        <h3>Escala de potencia</h3>
+        <div class="bar" role="img" aria-label="Potencia de 5 minutos, mínima, a 30 minutos, máxima"></div>
+        <div class="ticks"><span>5 min</span><span>10</span><span>20</span><span>30 min</span></div>
+        <div class="levels">
+          <div><span>Mínimo recomendado</span><b>5 min</b></div>
+          <div><span>Primera vez: hasta conocer el efecto</span><b>5–10 min</b></div>
+          <div><span>Potencia más alta</span><b>30 min</b></div>
+          <div><span>Adolescentes mayores de 14 años</span><b>tiempos bajos</b></div>
+        </div>
+      </div>
+      <div class="timer" aria-live="polite">
+        <h3>Temporizador de reposo</h3>
+        <div class="ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="var(--moss)" stroke-width="10"/>
+            <circle id="arc" cx="60" cy="60" r="52" fill="none" stroke="var(--lime)" stroke-width="10" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="0"/>
+          </svg>
+          <div class="read"><div class="t" id="tRead">05:00</div><div class="s" id="tState">Listo para empezar</div></div>
+        </div>
+        <div class="chips" role="group" aria-label="Minutos de reposo">
+          <button class="chip" data-m="5" aria-pressed="true">5 min</button>
+          <button class="chip" data-m="10" aria-pressed="false">10</button>
+          <button class="chip" data-m="15" aria-pressed="false">15</button>
+          <button class="chip" data-m="20" aria-pressed="false">20</button>
+          <button class="chip" data-m="30" aria-pressed="false">30</button>
+        </div>
+        <div class="ctrl">
+          <button class="btn solid" id="tGo">Iniciar</button>
+          <button class="btn" id="tReset">Reiniciar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ES PARA TI + BENEFICIOS -->
+<section id="beneficios">
+  <div class="wrap">
+    <div class="grid2">
+      <div>
+        <div class="head">
+          <p class="eyebrow">Señales</p>
+          <h2>¿Cómo saber si es para ti?</h2>
+        </div>
+        <ul class="checks q">
+          <li>Sientes que todo lo que comes te cae mal.</li>
+          <li>Se te inflama el colon de manera regular.</li>
+          <li>Estás hinchado o reteniendo líquidos.</li>
+          <li>Se te dificulta entrar al baño.</li>
+          <li>Tienes sensación de "no vaciado" después de ir al baño.</li>
+        </ul>
+        <div class="head" style="margin-top:44px">
+          <p class="eyebrow">Lo que ILÍVIT hace por ti</p>
+          <h2>Beneficios</h2>
+          <p class="lede">Un depurador natural a base de plantas que, gracias a su combinación y dosis, ayuda a equilibrar el funcionamiento de tu cuerpo.</p>
+        </div>
+        <ul class="checks">
+          <li>Mayor facilidad y frecuencia al evacuar; regula el tránsito intestinal.</li>
+          <li>Ayuda a desinflamar el colon.</li>
+          <li>Apoya la depuración del hígado.</li>
+          <li>Ayuda a eliminar líquidos retenidos.</li>
+          <li>Contribuye a equilibrar tu peso.</li>
+          <li>Efecto antioxidante y apoyo a tus defensas.</li>
+          <li>Menos toxinas en tu organismo.</li>
+        </ul>
+      </div>
+      <figure>
+        <video controls playsinline preload="none" poster="rutina-beneficios.jpg"><source src="rutina-beneficios.mp4" type="video/mp4"></video>
+        <figcaption><b>Así trabaja ILÍVIT en tu intestino</b> · 32 s</figcaption>
+        <p class="note" style="font-size:14px">Los resultados se acompañan de una alimentación saludable, buena hidratación y actividad física.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTES -->
+<section class="band" id="ingredientes">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Fórmula natural</p>
+      <h2>10 plantas e ingredientes</h2>
+      <p class="lede">ILÍVIT combina ingredientes naturales cuyas propiedades han sido estudiadas en investigaciones científicas.</p>
+    </div>
+    <div class="ings">
+      <div class="ing"><h3>Moringa</h3><em>Moringa oleifera</em><p>Alta en fibra: favorece el tránsito intestinal. Antioxidante y antiinflamatoria.</p></div>
+      <div class="ing"><h3>Cáscara de limón</h3><em>Citrus limon</em><p>Flavonoides y vitamina C antioxidantes; su fibra ayuda a reducir la hinchazón.</p></div>
+      <div class="ing"><h3>Hinojo</h3><em>Foeniculum vulgare</em><p>Carminativo: reduce gases e hinchazón abdominal y mejora la digestión.</p></div>
+      <div class="ing"><h3>Jengibre</h3><em>Zingiber officinale</em><p>Estimula la motilidad intestinal y ayuda a calmar la inflamación digestiva.</p></div>
+      <div class="ing"><h3>Remolacha</h3><em>Beta vulgaris</em><p>Betalaínas antioxidantes y betaína, que apoya la función del hígado.</p></div>
+      <div class="ing"><h3>Alcachofa</h3><em>Cynara scolymus</em><p>Estimula la producción de bilis; apoya la salud hepática y digestiva.</p></div>
+      <div class="ing"><h3>Menta</h3><em>Mentha</em><p>Antiespasmódica y carminativa: alivia cólicos y molestias digestivas.</p></div>
+      <div class="ing"><h3>Berenjena</h3><em>Solanum melongena</em><p>Rica en agua y fibra, baja en calorías; aporta saciedad.</p></div>
+      <div class="ing"><h3>Cidra</h3><em>Sechium edule</em><p>Más de 94 % agua y unas 20 kcal por 100 g; apoyo en planes de control de peso.</p></div>
+      <div class="ing"><h3>Espinaca</h3><em>Spinacia oleracea</em><p>Vitaminas K, A, C, hierro y fibra que favorecen un tránsito regular.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECAUCIONES -->
+<section id="precauciones">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow" style="color:var(--alert)">Lee antes de empezar</p>
+      <h2>Precauciones</h2>
+      <p class="lede">ILÍVIT tiene un efecto estimulante sobre los intestinos y las vías biliares. Si tienes alguna de estas condiciones, consulta primero con tu médico.</p>
+    </div>
+    <div class="cautions">
+      <div class="caution">
+        <h3>No lo tomes sin consultar al médico si tienes</h3>
+        <ul>
+          <li>Diarrea crónica o alteraciones de la flora intestinal</li>
+          <li>Deshidratación o presión baja</li>
+          <li>Hipersensibilidad a sus componentes</li>
+          <li>Obstrucción intestinal o enfermedad diverticular complicada</li>
+          <li>Dolor abdominal de causa desconocida o apendicitis</li>
+          <li>Inflamación de la vesícula</li>
+        </ul>
+      </div>
+      <div class="caution">
+        <h3>Embarazo y lactancia</h3>
+        <p>No se recomienda durante el embarazo. En lactancia, la recomendación general es tomarlo después de 1 año, cuando el bebé ya come más sólidos. Antes de ese tiempo, solo con orientación, a menor dosis y no a diario.</p>
+      </div>
+      <div class="caution">
+        <h3>Menores de 14 años</h3>
+        <p>No se recomienda: están en pleno crecimiento y desarrollo. Mayores de 14 años, con tiempos de infusión bajos y seguimiento de cómo reaccionan.</p>
+      </div>
+      <div class="caution">
+        <h3>Tratamiento con antibióticos</h3>
+        <p>Suspende ILÍVIT mientras tomas antibióticos, porque aumenta el riesgo de diarrea. Puedes reiniciarlo 2 días después de terminar el tratamiento.</p>
+      </div>
+      <div class="caution soft">
+        <h3>Si sufres de gastritis</h3>
+        <p>Sigue en control con gastroenterología y tómalo 30 minutos después de una comida liviana. Si sientes dolor, toma un vaso de agua con media cucharadita de bicarbonato.</p>
+      </div>
+      <div class="caution soft">
+        <h3>Si tienes hemorroides</h3>
+        <p>Al combatir el estreñimiento puede ayudar. Al principio pueden aparecer pequeños sangrados mientras se mueve materia acumulada; se regulan con los días. Acompáñalo con agua y fibra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMENDACIONES -->
+<section class="band" id="recomendaciones">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Para mejores resultados</p>
+      <h2>Recomendaciones de uso</h2>
+    </div>
+    <div class="grid2">
+      <ul class="checks">
+        <li><span><b>Tómalo en la noche</b> y empieza con poco tiempo de reposo (5–10 min) hasta conocer tu efecto.</span></li>
+        <li><span><b>Ajusta la potencia</b> subiendo poco a poco el tiempo de infusión, máximo 30 minutos.</span></li>
+        <li><span><b>Mantente hidratado</b> y consume fibra: frutas, verduras, papaya o pitaya.</span></li>
+        <li><span><b>Haz pausas intermitentes</b> en tu consumo.</span></li>
+      </ul>
+      <ul class="checks">
+        <li><span><b>Si tienes muchas deposiciones</b> o diarrea, disminuye el tiempo de infusión.</span></li>
+        <li><span><b>Acompáñalo</b> con alimentación saludable y actividad física.</span></li>
+        <li><span><b>Sigue las instrucciones</b> del folleto del producto; abusar de la dosis puede afectar tu flora intestinal.</span></li>
+        <li><span><b>Si tienes una condición médica</b> o tomas medicamentos, consulta antes con la línea médica.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS -->
+<section id="preguntas">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Dudas comunes</p>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Si tengo diabetes, ¿lo puedo consumir?</summary><div><p>Sí. ILÍVIT cuenta con registro INVIMA NSA-0011238-2021. Si estás en tratamiento, comenta con tu médico que lo vas a tomar.</p></div></details>
+      <details><summary>¿Daña la flora intestinal?</summary><div><p>Tomado según las recomendaciones del folleto, no hay riesgo de deterioro. Su efecto laxante es de origen natural y en dosis bajas, y sus ingredientes aportan fibra que actúa como prebiótico. Si tienes muchas deposiciones, disminuye la dosis y haz pausas.</p></div></details>
+      <details><summary>¿ILÍVIT da diarrea?</summary><div><p>Puede pasar si el tiempo de infusión es alto para tu cuerpo. Por eso se recomienda empezar con 5–10 minutos e ir subiendo. Si ocurre, reduce el tiempo de reposo y mantente hidratado.</p></div></details>
+      <details><summary>Sufro de estreñimiento, ¿me sirve?</summary><div><p>Sí. Estimula los movimientos intestinales y ayuda a que las heces sean más blandas, lo que facilita la evacuación, junto con el consumo de fibra y agua.</p></div></details>
+      <details><summary>Sufro del colon, ¿me ayuda?</summary><div><p>Contribuye a limpiar las paredes intestinales y a agilizar las deposiciones, lo que ayuda a desinflamar el colon y disminuir el exceso de gases. Si tienes un diagnóstico, sigue el control con tu médico.</p></div></details>
+      <details><summary>¿Cuál es el mejor horario?</summary><div><p>En la noche. Así el efecto llega en la mañana. Mira el video oficial de horarios en <a href="https://imfit.com.co/preguntas-frecuentes-ilivit/" target="_blank" rel="noopener">preguntas frecuentes de I'M FIT</a>.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARTIR -->
+<section class="band" id="compartir">
+  <div class="wrap share">
+    <div class="qr" id="qr" aria-label="Código QR de esta guía"><svg width="70mm" height="70mm" version="1.1" viewBox="0 0 70 70" fill_color="#08170f" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H4V4H2zM4,2H6V4H4zM6,2H8V4H6zM8,2H10V4H8zM10,2H12V4H10zM12,2H14V4H12zM14,2H16V4H14zM24,2H26V4H24zM26,2H28V4H26zM34,2H36V4H34zM38,2H40V4H38zM40,2H42V4H40zM42,2H44V4H42zM48,2H50V4H48zM54,2H56V4H54zM56,2H58V4H56zM58,2H60V4H58zM60,2H62V4H60zM62,2H64V4H62zM64,2H66V4H64zM66,2H68V4H66zM2,4H4V6H2zM14,4H16V6H14zM22,4H24V6H22zM32,4H34V6H32zM38,4H40V6H38zM50,4H52V6H50zM54,4H56V6H54zM66,4H68V6H66zM2,6H4V8H2zM6,6H8V8H6zM8,6H10V8H8zM10,6H12V8H10zM14,6H16V8H14zM18,6H20V8H18zM22,6H24V8H22zM26,6H28V8H26zM30,6H32V8H30zM32,6H34V8H32zM42,6H44V8H42zM44,6H46V8H44zM54,6H56V8H54zM58,6H60V8H58zM60,6H62V8H60zM62,6H64V8H62zM66,6H68V8H66zM2,8H4V10H2zM6,8H8V10H6zM8,8H10V10H8zM10,8H12V10H10zM14,8H16V10H14zM18,8H20V10H18zM22,8H24V10H22zM32,8H34V10H32zM38,8H40V10H38zM46,8H48V10H46zM54,8H56V10H54zM58,8H60V10H58zM60,8H62V10H60zM62,8H64V10H62zM66,8H68V10H66zM2,10H4V12H2zM6,10H8V12H6zM8,10H10V12H8zM10,10H12V12H10zM14,10H16V12H14zM18,10H20V12H18zM20,10H22V12H20zM26,10H28V12H26zM28,10H30V12H28zM30,10H32V12H30zM32,10H34V12H32zM34,10H36V12H34zM36,10H38V12H36zM42,10H44V12H42zM44,10H46V12H44zM46,10H48V12H46zM54,10H56V12H54zM58,10H60V12H58zM60,10H62V12H60zM62,10H64V12H62zM66,10H68V12H66zM2,12H4V14H2zM14,12H16V14H14zM18,12H20V14H18zM28,12H30V14H28zM30,12H32V14H30zM38,12H40V14H38zM40,12H42V14H40zM44,12H46V14H44zM46,12H48V14H46zM54,12H56V14H54zM66,12H68V14H66zM2,14H4V16H2zM4,14H6V16H4zM6,14H8V16H6zM8,14H10V16H8zM10,14H12V16H10zM12,14H14V16H12zM14,14H16V16H14zM18,14H20V16H18zM22,14H24V16H22zM26,14H28V16H26zM30,14H32V16H30zM34,14H36V16H34zM38,14H40V16H38zM42,14H44V16H42zM46,14H48V16H46zM50,14H52V16H50zM54,14H56V16H54zM56,14H58V16H56zM58,14H60V16H58zM60,14H62V16H60zM62,14H64V16H62zM64,14H66V16H64zM66,14H68V16H66zM18,16H20V18H18zM24,16H26V18H24zM26,16H28V18H26zM30,16H32V18H30zM34,16H36V18H34zM40,16H42V18H40zM42,16H44V18H42zM44,16H46V18H44zM46,16H48V18H46zM48,16H50V18H48zM2,18H4V20H2zM6,18H8V20H6zM8,18H10V20H8zM10,18H12V20H10zM12,18H14V20H12zM14,18H16V20H14zM22,18H24V20H22zM28,18H30V20H28zM30,18H32V20H30zM34,18H36V20H34zM36,18H38V20H36zM40,18H42V20H40zM42,18H44V20H42zM50,18H52V20H50zM54,18H56V20H54zM56,18H58V20H56zM58,18H60V20H58zM60,18H62V20H60zM62,18H64V20H62zM2,20H4V22H2zM4,20H6V22H4zM6,20H8V22H6zM10,20H12V22H10zM16,20H18V22H16zM18,20H20V22H18zM22,20H24V22H22zM24,20H26V22H24zM26,20H28V22H26zM28,20H30V22H28zM32,20H34V22H32zM34,20H36V22H34zM36,20H38V22H36zM38,20H40V22H38zM40,20H42V22H40zM42,20H44V22H42zM44,20H46V22H44zM48,20H50V22H48zM54,20H56V22H54zM56,20H58V22H56zM60,20H62V22H60zM62,20H64V22H62zM64,20H66V22H64zM66,20H68V22H66zM2,22H4V24H2zM6,22H8V24H6zM8,22H10V24H8zM12,22H14V24H12zM14,22H16V24H14zM16,22H18V24H16zM20,22H22V24H20zM22,22H24V24H22zM24,22H26V24H24zM26,22H28V24H26zM28,22H30V24H28zM30,22H32V24H30zM32,22H34V24H32zM36,22H38V24H36zM44,22H46V24H44zM46,22H48V24H46zM52,22H54V24H52zM58,22H60V24H58zM62,22H64V24H62zM64,22H66V24H64zM10,24H12V26H10zM16,24H18V26H16zM18,24H20V26H18zM20,24H22V26H20zM26,24H28V26H26zM28,24H30V26H28zM36,24H38V26H36zM38,24H40V26H38zM40,24H42V26H40zM44,24H46V26H44zM52,24H54V26H52zM58,24H60V26H58zM60,24H62V26H60zM62,24H64V26H62zM2,26H4V28H2zM6,26H8V28H6zM10,26H12V28H10zM12,26H14V28H12zM14,26H16V28H14zM20,26H22V28H20zM24,26H26V28H24zM30,26H32V28H30zM34,26H36V28H34zM42,26H44V28H42zM46,26H48V28H46zM50,26H52V28H50zM60,26H62V28H60zM66,26H68V28H66zM2,28H4V30H2zM4,28H6V30H4zM6,28H8V30H6zM12,28H14V30H12zM18,28H20V30H18zM32,28H34V30H32zM38,28H40V30H38zM46,28H48V30H46zM52,28H54V30H52zM54,28H56V30H54zM62,28H64V30H62zM64,28H66V30H64zM66,28H68V30H66zM8,30H10V32H8zM10,30H12V32H10zM14,30H16V32H14zM22,30H24V32H22zM24,30H26V32H24zM28,30H30V32H28zM32,30H34V32H32zM34,30H36V32H34zM36,30H38V32H36zM42,30H44V32H42zM46,30H48V32H46zM50,30H52V32H50zM52,30H54V32H52zM54,30H56V32H54zM56,30H58V32H56zM58,30H60V32H58zM64,30H66V32H64zM2,32H4V34H2zM12,32H14V34H12zM16,32H18V34H16zM18,32H20V34H18zM20,32H22V34H20zM26,32H28V34H26zM28,32H30V34H28zM32,32H34V34H32zM38,32H40V34H38zM44,32H46V34H44zM50,32H52V34H50zM52,32H54V34H52zM54,32H56V34H54zM58,32H60V34H58zM60,32H62V34H60zM62,32H64V34H62zM6,34H8V36H6zM14,34H16V36H14zM16,34H18V36H16zM22,34H24V36H22zM24,34H26V36H24zM26,34H28V36H26zM30,34H32V36H30zM32,34H34V36H32zM36,34H38V36H36zM42,34H44V36H42zM46,34H48V36H46zM48,34H50V36H48zM52,34H54V36H52zM56,34H58V36H56zM58,34H60V36H58zM62,34H64V36H62zM66,34H68V36H66zM8,36H10V38H8zM10,36H12V38H10zM16,36H18V38H16zM22,36H24V38H22zM32,36H34V38H32zM34,36H36V38H34zM38,36H40V38H38zM40,36H42V38H40zM42,36H44V38H42zM44,36H46V38H44zM48,36H50V38H48zM54,36H56V38H54zM56,36H58V38H56zM60,36H62V38H60zM62,36H64V38H62zM66,36H68V38H66zM6,38H8V40H6zM14,38H16V40H14zM16,38H18V40H16zM18,38H20V40H18zM20,38H22V40H20zM24,38H26V40H24zM26,38H28V40H26zM28,38H30V40H28zM32,38H34V40H32zM34,38H36V40H34zM38,38H40V40H38zM42,38H44V40H42zM46,38H48V40H46zM56,38H58V40H56zM58,38H60V40H58zM62,38H64V40H62zM64,38H66V40H64zM2,40H4V42H2zM4,40H6V42H4zM6,40H8V42H6zM10,40H12V42H10zM18,40H20V42H18zM22,40H24V42H22zM24,40H26V42H24zM26,40H28V42H26zM30,40H32V42H30zM34,40H36V42H34zM44,40H46V42H44zM46,40H48V42H46zM50,40H52V42H50zM52,40H54V42H52zM54,40H56V42H54zM56,40H58V42H56zM58,40H60V42H58zM60,40H62V42H60zM62,40H64V42H62zM4,42H6V44H4zM6,42H8V44H6zM14,42H16V44H14zM16,42H18V44H16zM28,42H30V44H28zM30,42H32V44H30zM38,42H40V44H38zM46,42H48V44H46zM50,42H52V44H50zM52,42H54V44H52zM56,42H58V44H56zM60,42H62V44H60zM64,42H66V44H64zM66,42H68V44H66zM2,44H4V46H2zM6,44H8V46H6zM12,44H14V46H12zM16,44H18V46H16zM28,44H30V46H28zM32,44H34V46H32zM34,44H36V46H34zM42,44H44V46H42zM44,44H46V46H44zM46,44H48V46H46zM60,44H62V46H60zM62,44H64V46H62zM66,44H68V46H66zM2,46H4V48H2zM10,46H12V48H10zM14,46H16V48H14zM16,46H18V48H16zM24,46H26V48H24zM28,46H30V48H28zM30,46H32V48H30zM38,46H40V48H38zM40,46H42V48H40zM44,46H46V48H44zM50,46H52V48H50zM64,46H66V48H64zM2,48H4V50H2zM6,48H8V50H6zM8,48H10V50H8zM16,48H18V50H16zM18,48H20V50H18zM20,48H22V50H20zM22,48H24V50H22zM24,48H26V50H24zM28,48H30V50H28zM34,48H36V50H34zM40,48H42V50H40zM42,48H44V50H42zM44,48H46V50H44zM46,48H48V50H46zM48,48H50V50H48zM50,48H52V50H50zM52,48H54V50H52zM54,48H56V50H54zM60,48H62V50H60zM62,48H64V50H62zM64,48H66V50H64zM2,50H4V52H2zM6,50H8V52H6zM14,50H16V52H14zM16,50H18V52H16zM18,50H20V52H18zM22,50H24V52H22zM24,50H26V52H24zM26,50H28V52H26zM36,50H38V52H36zM40,50H42V52H40zM46,50H48V52H46zM50,50H52V52H50zM52,50H54V52H52zM54,50H56V52H54zM56,50H58V52H56zM58,50H60V52H58zM62,50H64V52H62zM18,52H20V54H18zM24,52H26V54H24zM28,52H30V54H28zM30,52H32V54H30zM36,52H38V54H36zM38,52H40V54H38zM40,52H42V54H40zM42,52H44V54H42zM44,52H46V54H44zM50,52H52V54H50zM58,52H60V54H58zM62,52H64V54H62zM2,54H4V56H2zM4,54H6V56H4zM6,54H8V56H6zM8,54H10V56H8zM10,54H12V56H10zM12,54H14V56H12zM14,54H16V56H14zM22,54H24V56H22zM26,54H28V56H26zM28,54H30V56H28zM32,54H34V56H32zM36,54H38V56H36zM42,54H44V56H42zM48,54H50V56H48zM50,54H52V56H50zM54,54H56V56H54zM58,54H60V56H58zM62,54H64V56H62zM64,54H66V56H64zM2,56H4V58H2zM14,56H16V58H14zM18,56H20V58H18zM20,56H22V58H20zM30,56H32V58H30zM32,56H34V58H32zM34,56H36V58H34zM36,56H38V58H36zM38,56H40V58H38zM40,56H42V58H40zM42,56H44V58H42zM44,56H46V58H44zM46,56H48V58H46zM48,56H50V58H48zM50,56H52V58H50zM58,56H60V58H58zM60,56H62V58H60zM62,56H64V58H62zM66,56H68V58H66zM2,58H4V60H2zM6,58H8V60H6zM8,58H10V60H8zM10,58H12V60H10zM14,58H16V60H14zM18,58H20V60H18zM22,58H24V60H22zM26,58H28V60H26zM28,58H30V60H28zM32,58H34V60H32zM34,58H36V60H34zM40,58H42V60H40zM44,58H46V60H44zM46,58H48V60H46zM50,58H52V60H50zM52,58H54V60H52zM54,58H56V60H54zM56,58H58V60H56zM58,58H60V60H58zM60,58H62V60H60zM2,60H4V62H2zM6,60H8V62H6zM8,60H10V62H8zM10,60H12V62H10zM14,60H16V62H14zM18,60H20V62H18zM26,60H28V62H26zM32,60H34V62H32zM38,60H40V62H38zM46,60H48V62H46zM50,60H52V62H50zM52,60H54V62H52zM58,60H60V62H58zM64,60H66V62H64zM66,60H68V62H66zM2,62H4V64H2zM6,62H8V64H6zM8,62H10V64H8zM10,62H12V64H10zM14,62H16V64H14zM18,62H20V64H18zM20,62H22V64H20zM22,62H24V64H22zM24,62H26V64H24zM26,62H28V64H26zM32,62H34V64H32zM34,62H36V64H34zM36,62H38V64H36zM38,62H40V64H38zM44,62H46V64H44zM48,62H50V64H48zM54,62H56V64H54zM56,62H58V64H56zM60,62H62V64H60zM2,64H4V66H2zM14,64H16V66H14zM22,64H24V66H22zM26,64H28V66H26zM30,64H32V66H30zM32,64H34V66H32zM44,64H46V66H44zM46,64H48V66H46zM52,64H54V66H52zM58,64H60V66H58zM60,64H62V66H60zM62,64H64V66H62zM2,66H4V68H2zM4,66H6V68H4zM6,66H8V68H6zM8,66H10V68H8zM10,66H12V68H10zM12,66H14V68H12zM14,66H16V68H14zM18,66H20V68H18zM20,66H22V68H20zM22,66H24V68H22zM24,66H26V68H24zM32,66H34V68H32zM34,66H36V68H34zM36,66H38V68H36zM48,66H50V68H48zM50,66H52V68H50zM56,66H58V68H56zM64,66H66V68H64z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div>
+    <div>
+      <p class="eyebrow">Compártela</p>
+      <h2>Escanea y lleva la guía en tu celular</h2>
+      <p class="lede" style="margin-top:12px">Apunta la cámara de tu celular al código QR para abrir esta guía. También puedes copiar el enlace y enviarlo por WhatsApp.</p>
+      <div class="linkbox">
+        <input id="link" type="text" readonly value="https://marketingjmq.github.io/ilivit/" aria-label="Enlace de la guía">
+        <button class="btn solid" id="copy">Copiar enlace</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Línea de atención</p>
+      <h2>¿Tienes dudas? Escríbenos</h2>
+      <p class="lede">Si necesitas saber cómo tomar ILÍVIT o si hay alguna contraindicación con tus medicamentos o condiciones, nuestro equipo te orienta.</p>
+    </div>
+    <div class="contact">
+      <div class="c"><p class="eyebrow">WhatsApp</p><p class="num">313 645 2027</p><a href="https://wa.me/573136452027" target="_blank" rel="noopener">Abrir chat</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<script>
+(function(){
+  var C=326.73,total=300,left=300,timer=null,endAt=0,wake=null;
+  var arc=document.getElementById('arc'),rd=document.getElementById('tRead'),st=document.getElementById('tState'),go=document.getElementById('tGo');
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x}
+  function draw(){rd.textContent=fmt(left);arc.setAttribute('stroke-dashoffset',String(C*(1-left/total)))}
+  function beep(){try{var a=new (window.AudioContext||window.webkitAudioContext)();[0,.35,.7].forEach(function(t){var o=a.createOscillator(),g=a.createGain();o.frequency.value=880;g.gain.setValueAtTime(.0001,a.currentTime+t);g.gain.exponentialRampToValueAtTime(.3,a.currentTime+t+.02);g.gain.exponentialRampToValueAtTime(.0001,a.currentTime+t+.3);o.connect(g).connect(a.destination);o.start(a.currentTime+t);o.stop(a.currentTime+t+.32)})}catch(e){}}
+  function stop(){clearInterval(timer);timer=null;go.textContent='Iniciar';try{wake&&wake.release()}catch(e){}wake=null}
+  function tick(){left=Math.max(0,Math.round((endAt-Date.now())/1000));draw();if(left<=0){stop();st.textContent='¡Tu ILÍVIT está listo!';beep();left=0}}
+  go.addEventListener('click',function(){
+    if(timer){stop();st.textContent='En pausa';return}
+    if(left<=0){left=total}
+    endAt=Date.now()+left*1000;timer=setInterval(tick,250);go.textContent='Pausar';st.textContent='Reposando… mueve la tisana';
+    try{navigator.wakeLock&&navigator.wakeLock.request('screen').then(function(w){wake=w}).catch(function(){})}catch(e){}
+  });
+  document.getElementById('tReset').addEventListener('click',function(){stop();left=total;st.textContent='Listo para empezar';draw()});
+  chips.forEach(function(c){c.addEventListener('click',function(){chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});stop();total=left=parseInt(c.dataset.m,10)*60;st.textContent='Listo para empezar';draw()})});
+  draw();
+  var cp=document.getElementById('copy'),ln=document.getElementById('link');
+  cp.addEventListener('click',function(){
+    var done=function(){cp.textContent='Copiado';setTimeout(function(){cp.textContent='Copiar enlace'},1800)};
+    try{navigator.clipboard.writeText(ln.value).then(done,function(){ln.select();cp.textContent='Selecciónalo y copia'})}catch(e){ln.select();cp.textContent='Selecciónalo y copia'}
+  });
+})();
+</script>
+
+</body>
+</html>
